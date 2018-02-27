@@ -6,7 +6,7 @@
     "email": "marcelo.rafael.feil@gmail.com",
     "url": "http://developer.pro.br"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "src/index.ts",
   "scripts": {
