@@ -30,10 +30,9 @@
   "keywords": [
     "angular",
     "library",
-    "starter",
+    "semantic-ui",
     "typescript",
-    "angular-cli",
-    "ng-packagr"
+    "jquery"
   ],
   "private": false,
   "peerDependencies": {

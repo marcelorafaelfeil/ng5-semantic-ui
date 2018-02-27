@@ -1,0 +1,163 @@
+<div class="ui container">
+
+	<h2 class="ui dividing header">Types</h2>
+
+	<div class="example">
+		<h4 class="ui header">Checkbox</h4>
+		<p>A standard checkbox</p>
+		<checkbox>
+			Make my profile
+		</checkbox>
+	</div>
+
+	<div class="example">
+		<h4 class="ui header">Radio</h4>
+		<p>A checkbox can be formatted as a radio element. This means it an exclusive option.</p>
+		<checkbox radio>
+			Radio choice
+		</checkbox>
+		<br />
+		<br />
+		<div class="ui form">
+			<div class="inline fields">
+				<label>How often do you use checkboxes?</label>
+				<div class="field">
+					<checkbox radio name="frequency" [(ngModel)]="frequency" value="1" checked>
+						Once a week
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio name="frequency" [(ngModel)]="frequency" value="2">
+						2-3 times a week
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio name="frequency" [(ngModel)]="frequency" value="3">
+						Once a day
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio name="frequency" [(ngModel)]="frequency" value="4">
+						Twice a day
+					</checkbox>
+				</div>
+			</div>
+		</div>
+		<br />
+		<br />
+		<div class="ui form">
+			<div class="grouped fields">
+				<label>How often do you use checkboxes?</label>
+				<div class="field">
+					<checkbox radio name="example2" checked>
+						Once a week
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio name="example2">
+						2-3 times a week
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio name="example2">
+						Once a day
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio name="example2">
+						Twice a week
+					</checkbox>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="example">
+		<h4 class="ui header">Slider</h4>
+		<p>A checkbox can be formatted to emphasize the current selection state</p>
+
+		<checkbox type="slider">
+			Accept terms and conditions
+		</checkbox>
+
+		<br />
+		<br />
+		<div class="ui form">
+			<div class="grouped fields">
+				<label>Outbound Throughput</label>
+				<div class="field">
+					<checkbox radio type="slider" name="throughput" checked>
+						20mbps max
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio type="slider" name="throughput">
+						10mbps max
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio type="slider" name="throughput">
+						5mbps max
+					</checkbox>
+				</div>
+				<div class="field">
+					<checkbox radio type="slider" name="throughput">
+						Unmetered
+					</checkbox>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="example">
+		<h4 class="ui header">Toggle</h4>
+		<p>A checkbox can be formatted to show an on or off choice</p>
+		<checkbox type="toggle">
+			Subscribe to weekly newsletter
+		</checkbox>
+	</div>
+
+	<div class="example">
+		<h4 class="ui header">Read-only</h4>
+		<p>A checkbox can be read-only and unable to change states</p>
+
+		<checkbox readonly>
+			Ready Only
+		</checkbox>
+	</div>
+
+	<div class="example">
+		<h4 class="ui header">Checked</h4>
+		<p>A checkbox can be checked</p>
+
+		<checkbox checked>
+			Ready Only
+		</checkbox>
+	</div>
+
+	<div class="example">
+		<h4 class="ui header">Disabled</h4>
+		<p>A checkbox can be read-only and unable to change states</p>
+
+		<checkbox disabled>Disabled</checkbox><br /><br />
+		<checkbox type="toggle" disabled>Disabled</checkbox><br /><br />
+	</div>
+
+
+	<h2 class="ui dividing header">Variations</h2>
+
+	<div class="example">
+		<h4 class="ui header">Fitted</h4>
+		<p>A fitted checkbox does not leave padding for a label</p>
+
+		<div class="ui left floated compact segment">
+			<checkbox fitted></checkbox>
+		</div>
+		<div class="ui left floated compact segment">
+			<checkbox type="slider" fitted></checkbox>
+		</div>
+		<div class="ui left floated compact segment">
+			<checkbox type="toggle" fitted></checkbox>
+		</div>
+	</div>
+</div>

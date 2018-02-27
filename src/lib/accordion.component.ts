@@ -1,4 +1,5 @@
-import {AfterContentInit, Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, Input, ViewEncapsulation} from '@angular/core';
+import {ComponentAbstract} from '../core/component.abstract';
 
 declare var $: any;
 
@@ -11,12 +12,9 @@ declare var $: any;
 	styles: ['accordion { width: 100%; display: block; }'],
 	encapsulation: ViewEncapsulation.None
 })
-export class AccordionComponent implements AfterContentInit {
+export class AccordionComponent extends ComponentAbstract implements AfterContentInit {
 	private _$ele: any;
-	private _$accordion: any;
 	private _$segment: any;
-	private _first_class: string;
-	private _last_class: string;
 	private _isInverted: boolean;
 	private _options: {
 		exclusive: boolean,
@@ -25,7 +23,6 @@ export class AccordionComponent implements AfterContentInit {
 		closeNested: boolean,
 		collapsible: boolean,
 		duration: number,
-		easing: string,
 		name: string,
 		namespace: string,
 		selector: {
@@ -67,9 +64,10 @@ export class AccordionComponent implements AfterContentInit {
 	public menu: string;
 
 	public constructor(private _ele: ElementRef) {
+		super();
 		this._isInverted = false;
-		this._first_class = 'ui';
-		this._last_class = 'accordion';
+		this._FIRST_CLASS = 'ui';
+		this._LAST_CLASS = 'accordion';
 
 		this._$ele = $(_ele.nativeElement);
 
@@ -80,7 +78,6 @@ export class AccordionComponent implements AfterContentInit {
 			closeNested: true,
 			collapsible: true,
 			duration: 500,
-			easing: 'easeInOutQuint',
 			name: 'Accordion',
 			namespace: 'accordion',
 			selector: {
@@ -115,7 +112,7 @@ export class AccordionComponent implements AfterContentInit {
 			const $parents = this._$ele.parents('accordion');
 			let ele_class = '';
 
-			this._$accordion = $(this._ele.nativeElement.querySelector('div'));
+			this._$element = $(this._ele.nativeElement.querySelector('div'));
 			// append title and content in accordion div.
 
 			// format accord of parameters
@@ -129,15 +126,15 @@ export class AccordionComponent implements AfterContentInit {
 				this._isInverted = true;
 				this._appendClass(ele_class);
 
-				const txt_class = this._$accordion.attr('class');
-				const html_accordion = this._$accordion.html();
+				const txt_class = this._$element.attr('class');
+				const html_accordion = this._$element.html();
 
-				this._$accordion.html('');
-				this._$accordion.append(() => {
+				this._$element.html('');
+				this._$element.append(() => {
 					return $('<div>').html(html_accordion).attr('class', txt_class);
 				});
-				this._$segment = this._$accordion;
-				this._$accordion = this._$segment.find('.ui.accordion');
+				this._$segment = this._$element;
+				this._$element = this._$segment.find('.ui.accordion');
 				this._$segment.attr('class', 'ui inverted segment');
 			}
 
@@ -157,14 +154,9 @@ export class AccordionComponent implements AfterContentInit {
 			}
 
 			if ($parents.length === 0) {
-				this._$accordion.accordion(this._options);
+				this._$element.accordion(this._options);
 			}
 		});
-	}
-
-	private _appendClass(ele_class: string) {
-		ele_class = ele_class.split('  ').join(' ');
-		this._$accordion.attr('class', this._first_class + ele_class + this._last_class);
 	}
 
 	public getName(): string {
@@ -176,22 +168,22 @@ export class AccordionComponent implements AfterContentInit {
 	}
 
 	public refresh() {
-		this._$accordion.accordion('refresh');
+		this._$element.accordion('refresh');
 	}
 
 	public open(index: number) {
-		this._$accordion.accordion('open', index);
+		this._$element.accordion('open', index);
 	}
 
 	public closeOthers() {
-		this._$accordion.accordion('close others');
+		this._$element.accordion('close others');
 	}
 
 	public close(index: number) {
-		this._$accordion.accordion('close', index);
+		this._$element.accordion('close', index);
 	}
 
 	public toggle(index: number) {
-		this._$accordion.accordion('toggle', index);
+		this._$element.accordion('toggle', index);
 	}
 }

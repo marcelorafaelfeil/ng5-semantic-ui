@@ -1,7 +1,7 @@
 # Angular Semantic-ui
 The purpose of this project, is convert the semantic-ui to angular components.
 
-At this moment, just accordion component is ok, but I am hard working to done this.
+Ng5-semantic-ui it's starting and has a few components.
 
   
 ## Getting started
@@ -30,84 +30,7 @@ Now, you need to import the SemanticModule in your module:
 
 Now, your project is ready to use the ng5-semantic-ui components.
 
-## Accordion
-
-### Clean
-A standard accordion
-
-	<accordion>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 1
-		</div>
-		<div class="content">
-			Content 1
-		</div>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 2
-		</div>
-		<div class="content">
-			Content 2
-		</div>
-	</accordion>
-	
-### Styled
-Is necessary to include the `styled` parameter in accordion tag.
-
-	<accordion styled>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 1
-		</div>
-		<div class="content">
-			Content 1
-		</div>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 2
-		</div>
-		<div class="content">
-			Content 2
-		</div>
-	</accordion>
-	
-### Fluid
-Is necessary to include the `fluid` parameter in accordion tag.
-
-	<accordion fluid>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 1
-		</div>
-		<div class="content">
-			Content 1
-		</div>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 2
-		</div>
-		<div class="content">
-			Content 2
-		</div>
-	</accordion>
-	
-### Inverted
-Is necessary to include the `inverted` parameter in accordion tag.
-
-	<accordion inverted>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 1
-		</div>
-		<div class="content">
-			Content 1
-		</div>
-		<div class="title">
-			<i class="dropdown icon"></i>
-			Title 2
-		</div>
-		<div class="content">
-			Content 2
-		</div>
-	</accordion>
+## More Links
+[Wiki](https://github.com/marcelorafaelfeil/ng5-semantic-ui/wiki)
+* [Accordion](https://github.com/marcelorafaelfeil/ng5-semantic-ui/wiki/Accordion)
+* [Checkbox](https://github.com/marcelorafaelfeil/ng5-semantic-ui/wiki/Checkbox)
