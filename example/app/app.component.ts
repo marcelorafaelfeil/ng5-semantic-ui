@@ -1,5 +1,4 @@
-import {Component, ViewEncapsulation, ViewChildren, QueryList, AfterViewInit, OnInit} from '@angular/core';
-import {AccordionComponent} from '../../src';
+import {Component, ViewEncapsulation, AfterViewInit, OnInit} from '@angular/core';
 
 @Component({
 	selector: 'app-root',

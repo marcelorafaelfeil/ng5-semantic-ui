@@ -160,4 +160,58 @@
 			<checkbox type="toggle" fitted></checkbox>
 		</div>
 	</div>
+
+	<h2 class="ui dividing header">Examples</h2>
+	<div class="example">
+		<h4 class="ui header">Using Callbacks</h4>
+		<p>
+			Checkbox has two versions of each state change behavior to let you determine
+			whether the call should trigger checkbox callbacks.
+		</p>
+		<p>Calling a behavior like <code>check()</code> will trigger an elements callbacks,
+			however using <code>setCheck()</code> will adjust the checkbox state <em>without
+			triggering callbacks</em>
+		</p>
+		<p>
+			This differentiation is important to differentiate between programmatic changes, and
+			user-invoked changes to state.
+		</p>
+
+		<div class="ui equal width stretched grid">
+			<div class="column">
+				<div class="ui segment">
+					<div class="ui top right attached label">Example</div>
+					<checkbox name="callbackExample" namespace="eventsExample">Checkbox</checkbox>
+					<div class="ui divider"></div>
+					<checkbox radio namespace="eventsExample">Radio</checkbox>
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui console segment">
+					<div class="ui top right attached label">Console</div>
+					<span *ngFor="let item of console;">{{item}}<br /></span>
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui vertical buttons">
+					<div class="ui button" (click)="firstCheckbox().toggle()">Toggle</div>
+					<div class="ui button" (click)="firstCheckbox().check()">Check</div>
+					<div class="ui button" (click)="firstCheckbox().uncheck()">Uncheck</div>
+					<div class="ui button" (click)="firstCheckbox().indeterminate()">Indeterminate</div>
+					<div class="ui button" (click)="firstCheckbox().determinate()">Determinate</div>
+					<div class="ui button" (click)="firstCheckbox().enable()">Enable</div>
+					<div class="ui button" (click)="firstCheckbox().disable()">Disable</div>
+				</div>
+				<div class="ui divider"></div>
+				<div class="ui vertical buttons">
+					<div class="ui button" (click)="firstCheckbox().setChecked()">Set Checked</div>
+					<div class="ui button" (click)="firstCheckbox().setUnchecked()">Set Unchecked</div>
+					<div class="ui button" (click)="firstCheckbox().setIndeterminate()">Set Indeterminate</div>
+					<div class="ui button" (click)="firstCheckbox().setDeterminate()">Set Determinate</div>
+					<div class="ui button" (click)="firstCheckbox().setEnabled()">Set Enabled</div>
+					<div class="ui button" (click)="firstCheckbox().setDisabled()">Set Disabled</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

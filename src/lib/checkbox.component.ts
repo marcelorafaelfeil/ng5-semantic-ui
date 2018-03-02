@@ -18,6 +18,7 @@ declare var $: any;
 export class CheckboxComponent extends ComponentAbstract implements AfterViewInit, ControlValueAccessor {
 	@Input() public radio: string;
 	@Input() public name: string;
+	@Input() public namespace: string;
 	@Input() public type: string;
 	@Input() public value: any;
 	@Input() public checked: string;
@@ -77,13 +78,13 @@ export class CheckboxComponent extends ComponentAbstract implements AfterViewIni
 		'toggle'
 	];
 
-	private _onChangedCallback: (_: any) => void = () => {
-	};
-	private _onTouchedCallback: () => void = () => {
-	};
+	private _onChangedCallback: (_: any) => void;
+	private _onTouchedCallback: () => void;
 
 	constructor(private _ele: ElementRef) {
 		super();
+		this._onChangedCallback = () => {};
+		this._onTouchedCallback = () => {};
 		this._FIRST_CLASS = 'ui';
 		this._LAST_CLASS = 'checkbox';
 
@@ -222,13 +223,22 @@ export class CheckboxComponent extends ComponentAbstract implements AfterViewIni
 		return this.name;
 	}
 
+	public getNamespace(): string {
+		return this.namespace;
+	}
+
 	public setOptions(options: any) {
 		for (const k in options) {
 			if (this._options[k] !== undefined) {
-				this._options[k] = ($event) => {
-					this._options[k]($event);
-					options[k]($event);
-				};
+				if (typeof this._options[k] === 'function') {
+					const _fn = Object.assign(this._options[k]);
+					this._options[k] = ($event) => {
+						options[k]($event);
+						_fn($event);
+					};
+				} else {
+					this._options[k] = options[k];
+				}
 			}
 		}
 	}
@@ -257,6 +267,10 @@ export class CheckboxComponent extends ComponentAbstract implements AfterViewIni
 		this._$element.checkbox('enable');
 	}
 
+	public disable(): void {
+		this._$element.checkbox('disable');
+	}
+
 	public setChecked(): void {
 		this._$element.checkbox('set checked');
 	}
@@ -273,8 +287,8 @@ export class CheckboxComponent extends ComponentAbstract implements AfterViewIni
 		this._$element.checkbox('set determinate');
 	}
 
-	public setEnable(): void {
-		this._$element.checkbox('set enable');
+	public setEnabled(): void {
+		this._$element.checkbox('set enabled');
 	}
 
 	public setDisabled(): void {
